@@ -29,7 +29,7 @@ module.exports = {
       }
     }
   },
-  chainWebpack(config) {
+  chainWebpack: config => {
     // it can improve the speed of the first screen, it is recommended to turn on preload
     config.plugin('preload').tap(() => [
       {

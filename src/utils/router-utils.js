@@ -1,4 +1,4 @@
-import { asyncRouters } from '@/router/index'
+import { asyncRouters } from '@/router'
 
 // 判断是否有权限访问该菜单
 function hasPermission(menus, route) {
@@ -6,8 +6,8 @@ function hasPermission(menus, route) {
     const currMenu = getMenu(route.meta.title, menus)
     if (currMenu != null) {
       // 设置菜单的标题、图标和可见性
-      if (currMenu.title != null && currMenu.title !== '') {
-        route.meta.title = currMenu.title
+      if (currMenu.name != null && currMenu.name !== '') {
+        route.meta.title = currMenu.name
       }
       if (currMenu.icon != null && currMenu.title !== '') {
         route.meta.icon = currMenu.icon

@@ -16,6 +16,9 @@
               首页
             </el-dropdown-item>
           </router-link>
+          <a target="_blank" @click="chatRouter">
+            <el-dropdown-item>聊天</el-dropdown-item>
+          </a>
           <a target="_blank" href="https://github.com/flywelkin/">
             <el-dropdown-item>Github</el-dropdown-item>
           </a>
@@ -54,6 +57,12 @@ export default {
     async logout() {
       await this.$store.dispatch('user/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
+    chatRouter() {
+      const routeData = this.$router.resolve({
+        name: 'chat'
+      })
+      window.open(routeData.href, '_blank')
     }
   }
 }

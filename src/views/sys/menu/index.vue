@@ -208,7 +208,6 @@ export default {
       getMenuTree().then(res => {
         this.treeParams.data = res.data
         this.visible = true
-        this.$refs['menuForm'].clearValidate()
       })
     },
     /**
@@ -251,6 +250,7 @@ export default {
           success('菜单添加成功')
           this.visible = false
           this.getMenuTree()
+          // this.$refs['menuForm'].clearValidate()
         })
       }).catch(() => {})
     },

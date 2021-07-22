@@ -1,0 +1,196 @@
+{
+  "nested": {
+    "proto": {
+      "options": {
+        "java_package": "io.gitee.welkinfast.im.proto",
+        "java_outer_classname": "ImEntity"
+      },
+      "nested": {
+        "HeadType": {
+          "values": {
+            "LOGIN_REQUEST": 1,
+            "LOGIN_RESPONSE": 2,
+            "LOGOUT_REQUEST": 3,
+            "LOGOUT_RESPONSE": 4,
+            "KEEPALIVE_REQUEST": 5,
+            "KEEPALIVE_RESPONSE": 6,
+            "MESSAGE_REQUEST": 7,
+            "MESSAGE_RESPONSE": 8,
+            "MESSAGE_NOTIFICATION": 9
+          }
+        },
+        "NotifyType": {
+          "values": {
+            "ONLINE": 1,
+            "OFFLINE": 2
+          }
+        },
+        "MessageType": {
+          "values": {
+            "TXT": 1,
+            "OTHER": 2
+          }
+        },
+        "MessageHeartBeat": {
+          "fields": {
+            "content": {
+              "rule": "required",
+              "type": "string",
+              "id": 1
+            }
+          }
+        },
+        "MessageNotification": {
+          "fields": {
+            "msgType": {
+              "rule": "required",
+              "type": "uint32",
+              "id": 1
+            },
+            "sender": {
+              "rule": "required",
+              "type": "string",
+              "id": 2
+            },
+            "timestamp": {
+              "rule": "required",
+              "type": "string",
+              "id": 3
+            },
+            "json": {
+              "rule": "required",
+              "type": "string",
+              "id": 4
+            }
+          }
+        },
+        "LoginRequest": {
+          "fields": {
+            "token": {
+              "rule": "required",
+              "type": "string",
+              "id": 3
+            }
+          }
+        },
+        "LoginResponse": {
+          "fields": {
+            "success": {
+              "rule": "required",
+              "type": "bool",
+              "id": 1
+            },
+            "code": {
+              "type": "uint32",
+              "id": 2
+            },
+            "info": {
+              "type": "string",
+              "id": 3
+            },
+            "expose": {
+              "type": "uint32",
+              "id": 4
+            }
+          }
+        },
+        "MessageRequest": {
+          "fields": {
+            "from": {
+              "rule": "required",
+              "type": "string",
+              "id": 1
+            },
+            "to": {
+              "rule": "required",
+              "type": "string",
+              "id": 2
+            },
+            "time": {
+              "rule": "required",
+              "type": "uint64",
+              "id": 3
+            },
+            "msgType": {
+              "rule": "required",
+              "type": "MessageType",
+              "id": 4
+            },
+            "content": {
+              "type": "string",
+              "id": 5
+            },
+            "json": {
+              "type": "string",
+              "id": 6
+            }
+          }
+        },
+        "MessageResponse": {
+          "fields": {
+            "result": {
+              "rule": "required",
+              "type": "bool",
+              "id": 1
+            },
+            "code": {
+              "type": "uint32",
+              "id": 2
+            },
+            "info": {
+              "type": "string",
+              "id": 3
+            },
+            "expose": {
+              "type": "uint32",
+              "id": 4
+            }
+          }
+        },
+        "Message": {
+          "fields": {
+            "type": {
+              "rule": "required",
+              "type": "HeadType",
+              "id": 1
+            },
+            "id": {
+              "rule": "required",
+              "type": "string",
+              "id": 2
+            },
+            "sessionId": {
+              "rule": "required",
+              "type": "string",
+              "id": 3
+            },
+            "loginRequest": {
+              "type": "LoginRequest",
+              "id": 4
+            },
+            "loginResponse": {
+              "type": "LoginResponse",
+              "id": 5
+            },
+            "messageRequest": {
+              "type": "MessageRequest",
+              "id": 6
+            },
+            "messageResponse": {
+              "type": "MessageResponse",
+              "id": 7
+            },
+            "notification": {
+              "type": "MessageNotification",
+              "id": 8
+            },
+            "messageHeartBeat": {
+              "type": "MessageHeartBeat",
+              "id": 9
+            }
+          }
+        }
+      }
+    }
+  }
+}

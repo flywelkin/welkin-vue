@@ -31,9 +31,9 @@ router.beforeEach(async(to, from, next) => {
         try {
           // 获取用户信息
           const user = await store.dispatch('user/getInfo')
-          console.log('aa', user)
+          console.log('user: ', user)
           const newRouters = await store.dispatch('permission/generateRoutes', user)
-          console.log('aa', newRouters)
+          console.log('newRouters', newRouters)
           router.addRoutes(newRouters)
           next({ ...to, replace: true })
         } catch (error) {

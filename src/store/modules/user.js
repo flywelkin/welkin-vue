@@ -67,7 +67,7 @@ const actions = {
         }
         commit('SET_ID', id)
         commit('SET_NAME', userName)
-        let avatar = data.data
+        let avatar = data.avatar
         if (!avatar) {
           avatar = 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
         }

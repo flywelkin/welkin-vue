@@ -6,8 +6,8 @@ function hasPermission(menus, route) {
     const currMenu = getMenu(route.meta.permission, menus)
     if (currMenu != null) {
       // 设置菜单的标题、图标和可见性
-      if (currMenu.title && currMenu.title !== '') {
-        route.meta.title = currMenu.title
+      if (currMenu.name && currMenu.name !== '') {
+        route.meta.title = currMenu.name
       }
       if (currMenu.icon && currMenu.icon !== '') {
         route.meta.icon = currMenu.icon
@@ -33,10 +33,10 @@ function hasPermission(menus, route) {
 }
 
 // 根据路由名称获取菜单
-function getMenu(name, menus) {
+function getMenu(permission, menus) {
   for (let i = 0; i < menus.length; i++) {
     const menu = menus[i]
-    if (name === menu.perms) {
+    if (permission === menu.perms) {
       return menu
     }
   }

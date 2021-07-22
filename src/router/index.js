@@ -18,8 +18,8 @@ export const constantRoutes = [
   },
   {
     path: '/',
-    component: Layout,
     redirect: '/dashboard',
+    component: Layout,
     children: [{
       path: 'dashboard',
       name: 'Dashboard',
@@ -32,11 +32,11 @@ export const constantRoutes = [
 export const asyncRouters = [
   {
     path: '/sys',
-    component: Layout,
     redirect: '/sys/user',
     name: 'sys',
     hidden: false,
     meta: { title: '系统管理', icon: 'el-icon-setting', permission: 'sys' },
+    component: Layout,
     children: [
       {
         path: 'user',
@@ -67,6 +67,30 @@ export const asyncRouters = [
         meta: { title: '机构管理', icon: 'el-icon-office-building', permission: 'sys:dept:list' }
       }
     ]
+  },
+  {
+    path: '/task',
+    redirect: '/task/quartz',
+    name: 'task',
+    hidden: false,
+    meta: { title: '任务管理', icon: 'el-icon-date', permission: 'task' },
+    component: Layout,
+    children: [
+      {
+        path: 'quartz',
+        name: 'quartz',
+        hidden: false,
+        component: () => import('@/views/task/quartz/index'),
+        meta: { title: '定时任务', icon: 'el-icon-alarm-clock', permission: 'task:quartz:list' }
+      }
+    ]
+  },
+  {
+    path: '/chat',
+    name: 'chat',
+    hidden: true,
+    meta: { title: '聊天', icon: 'el-icon-date', permission: 'chat' },
+    component: () => import('@/views/chat/index')
   }
 ]
 
